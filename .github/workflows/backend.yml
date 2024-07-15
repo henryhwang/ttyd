@@ -32,7 +32,7 @@ jobs:
           usesh: true
           envs: 'BUILD_TARGET'
           prepare: |
-            pkg install -y autoconf automake build-essential cmake curl file libtool
+            pkg install -y autoconf automake cmake curl file libtool
 
           run: |
             ./scripts/cross-build.sh
