@@ -39,7 +39,11 @@ jobs:
             echo $GITHUB_WORKSPACE
             cd /root/work/ttyd/ttyd
             ls -la
-            ./scripts/cross-build.sh
+            mkdir build
+            cd build
+            cmake ..
+            make
+            ls -la
       - uses: actions/upload-artifact@v4
         with:
           name: ttyd.${{ matrix.target }}
