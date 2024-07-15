@@ -39,7 +39,7 @@ jobs:
             pwd
             ls -la
             cat ./scripts/cross-build.sh
-            $(pwd)/scripts/cross-build.sh
+            /usr/bin/bash $(pwd)/scripts/cross-build.sh
       - uses: actions/upload-artifact@v4
         with:
           name: ttyd.${{ matrix.target }}
