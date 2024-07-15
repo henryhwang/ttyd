@@ -33,8 +33,7 @@ jobs:
           sync: sshfs
           envs: 'BUILD_TARGET'
           prepare: |
-            pkg install -y autoconf automake cmake curl file libtool git libwebsockets libwebsockets-dev
-
+            pkg install -y autoconf automake cmake curl file libtool git libwebsockets
           run: |
             echo $GITHUB_WORKSPACE
             cd /root/work/ttyd/ttyd
