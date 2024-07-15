@@ -21,17 +21,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [i686, x86_64, arm, armhf, aarch64, mips, mipsel, mips64, mips64el, s390x, win32]
+        target: [x86_64]
     steps:
       - uses: actions/checkout@v4
-      - name: Install packages
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y autoconf automake build-essential cmake curl file libtool
-      - name: Cross build (${{ matrix.target }})
+      - uses: vmactions/freebsd-vm@v1
         env:
           BUILD_TARGET: ${{ matrix.target }}
-        run: ./scripts/cross-build.sh
+        with:
+          usesh: true
+          envs: 'BUILD_TARGET'
+          prepare: |
+            pkg install -y autoconf automake build-essential cmake curl file libtool
+
+          run: |
+            ./scripts/cross-build.sh
       - uses: actions/upload-artifact@v4
         with:
           name: ttyd.${{ matrix.target }}
