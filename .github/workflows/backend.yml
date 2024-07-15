@@ -30,6 +30,7 @@ jobs:
           BUILD_TARGET: ${{ matrix.target }}
         with:
           usesh: true
+          sync: sshfs
           envs: 'BUILD_TARGET'
           prepare: |
             pkg install -y autoconf automake cmake curl file libtool
