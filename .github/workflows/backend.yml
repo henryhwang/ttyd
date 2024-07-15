@@ -35,7 +35,11 @@ jobs:
           prepare: |
             pkg install -y autoconf automake cmake curl file libtool
 
-          run: ./scripts/cross-build.sh
+          run: |
+            echo $GITHUB_WORKSPACE
+            cd /root/work/ttyd/ttyd
+            ls -la
+            ./scripts/cross-build.sh
       - uses: actions/upload-artifact@v4
         with:
           name: ttyd.${{ matrix.target }}
