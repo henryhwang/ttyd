@@ -24,7 +24,8 @@ jobs:
         target: [x86_64]
     steps:
       - uses: actions/checkout@v4
-      - uses: vmactions/freebsd-vm@v1
+      - name: use freebsd-vm action
+        uses: vmactions/freebsd-vm@v1
         env:
           BUILD_TARGET: ${{ matrix.target }}
         with:
