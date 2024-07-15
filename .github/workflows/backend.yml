@@ -35,6 +35,8 @@ jobs:
             pkg install -y autoconf automake cmake curl file libtool
 
           run: |
+            pwd
+            ls -la
             ./scripts/cross-build.sh
       - uses: actions/upload-artifact@v4
         with:
