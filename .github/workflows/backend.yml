@@ -38,6 +38,9 @@ jobs:
             echo $GITHUB_WORKSPACE
             echo $PATH
             export PATH=$PATH:$GITHUB_WORKSPACE/scripts
+            echo $PATH
+            which make
+            which cross-build.sh
             pwd
             ls -la
             cross-build.sh
