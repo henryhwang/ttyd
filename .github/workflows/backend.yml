@@ -36,13 +36,13 @@ jobs:
             pkg install -y autoconf automake cmake curl file libtool git libwebsockets
           run: |
             echo $GITHUB_WORKSPACE
-            cd /root/work/ttyd/ttyd
+            echo $PATH
+            export PATH=$PATH;$GITHUB_WORKSPACE/scripts
+            pwd ls -la
+            cross-build.sh
+            pwd
             ls -la
-            mkdir build
-            cd build
-            cmake ..
-            make
-            ls -la
+            ls -la build
       - uses: actions/upload-artifact@v4
         with:
           name: ttyd.${{ matrix.target }}
